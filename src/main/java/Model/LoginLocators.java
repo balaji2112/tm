@@ -9,5 +9,9 @@ public class LoginLocators
 	public static String Passwordbyname= "password";
 	//Submit button
 	public static String SubmitButtonbyXPath= "button[class='md-raised md-primary btn-new mt-20 md-button ng-scope md-default-theme']";
-	
+	//Terms and Conditions
+	public static String TermsbyLinkText="T&C";
+	//Privacy Policy
+	public static String privacybyLinkText="Privacy Policy.";
+
 }
