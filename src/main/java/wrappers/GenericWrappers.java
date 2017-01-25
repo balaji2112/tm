@@ -371,7 +371,7 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	public void clickByXpath(String xpathVal) {
 		try{
 			driver.findElement(By.xpath(xpathVal)).click();
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			reportStep("The element : "+xpathVal+" is clicked.", "PASS");
 		} catch (Exception e) {
 			reportStep("The element with xpath: "+xpathVal+" could not be clicked.", "FAIL");
