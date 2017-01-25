@@ -5,7 +5,7 @@ public class SignupLocators
 	//Sign Up link
 	public static String SignupLinkbyLinkText = "Log In/Sign Up";
 	//Sign Up tab
-	public static String SignupTabyLinkText = "Sign Up";
+	public static String SignupTabyXPath = "//li[contains(text(),'Sign Up')]";
 	//Mobile number for
 	
 	public static String SignupLinkbyclass = "_3ac-";
