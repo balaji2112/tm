@@ -15,7 +15,10 @@ public class SignupLocators
 	public static String mobilenumberbyName = "mobileNumber";
 	//Email field
 	public static String MobileErrorMSgbyClass="error";
+	//email id by name
 	public static String EmailidbyName = "email";
+	//checkbox class name
+	public static String CheckByClass="md-container";
 	//Password field
 	public static String PasswordbyName = "loginPassword";
 	//Create account button

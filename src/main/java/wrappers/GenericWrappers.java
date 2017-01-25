@@ -17,6 +17,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -446,6 +447,20 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		return bReturn; 
 	}
 
+	public String verifyCheckboxByClass(String check)
+	{
+		try
+		{
+			WebElement checkbox=driver.findElementByClassName(check);
+		checkbox.isSelected();
+		   reportStep("The field" +check+ "is empty","Pass");
+		}
+		catch(Exception e) {
+			reportStep("The element with id: "+check+" could not be found.", "FAIL");
+		}
+		return check;
+	}
+	
 	public String verifyTextByName(String idVal) {
 		String bReturn = "";
 		try{
