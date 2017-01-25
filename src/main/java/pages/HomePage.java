@@ -24,5 +24,9 @@ public class HomePage extends LeaftapsWrappers {
 		return this;
 	}
 	
-
+	public HomePage ClickSignup()
+	{
+		return this;
+		
+	}
 }
