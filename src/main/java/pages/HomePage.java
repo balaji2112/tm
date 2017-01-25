@@ -5,6 +5,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import Model.LoginLocators;
+import Model.SignupLocators;
 import wrappers.LeaftapsWrappers;
 
 public class HomePage extends LeaftapsWrappers {
@@ -20,12 +21,19 @@ public class HomePage extends LeaftapsWrappers {
 	
 	public HomePage ClickLogInSignup()
 	{
-		clickByClassName(LoginLocators.LoginLinkbyclass);
+		clickByXpath(LoginLocators.LoginLinkbyxpath);
 		return this;
 	}
 	
 	public HomePage ClickSignup()
 	{
+		clickByXpath(SignupLocators.SignupTabyXPath);
+		return this;
+	}
+	
+	public HomePage VerifyMobileNumber()
+	{
+		
 		return this;
 		
 	}

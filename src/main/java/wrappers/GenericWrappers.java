@@ -445,7 +445,16 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		return bReturn; 
 	}
 
-
+	public String verifyTextByName(String idVal) {
+		String bReturn = "";
+		try{
+			return driver.findElementByName(idVal).getText();
+			
+		} catch (Exception e) {
+			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
+		}
+		return bReturn; 
+	}
 	/**
 	 * This method will select the drop down value using id as locator
 	 * @param id The id (locator) of the drop down element
