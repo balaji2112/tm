@@ -20,7 +20,7 @@ public class HomePage extends LeaftapsWrappers {
 	
 	public HomePage ClickLogInSignup()
 	{
-		clickByClassName(LoginLocators.LoginLinkbyclass);
+		clickByClassName(LoginLocators.LoginLinkbyxpath);
 		return this;
 	}
 	

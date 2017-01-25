@@ -34,10 +34,11 @@ public class PrivacyWindow extends LeaftapsWrappers {
 		clickByLink(LoginLocators.privacybyLinkText);
 		Thread.sleep(3000);
 		String winHandleBefore = driver.getWindowHandle();
-		Set<String> allwindows = driver.getWindowHandles();
-		for (String winHandle : allwindows) {
-			driver.switchTo().window(winHandle);
-		}
+		switchToLastWindow();
+		/*
+		 * Set<String> allwindows = driver.getWindowHandles(); for (String
+		 * winHandle : allwindows) { driver.switchTo().window(winHandle); }
+		 */
 		String PrivacyPolicy = driver.getTitle();
 		Thread.sleep(2000);
 		if (compare.equalsIgnoreCase(PrivacyPolicy)) {
@@ -45,7 +46,6 @@ public class PrivacyWindow extends LeaftapsWrappers {
 		} else {
 			System.out.println("This page is not related to Privacy policy");
 		}
-
 		driver.switchTo().window(winHandleBefore);
 		driver.close();
 
