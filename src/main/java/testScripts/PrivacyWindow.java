@@ -25,25 +25,25 @@ public class PrivacyWindow extends LeaftapsWrappers {
 	@Test
 	public void privacywindow() throws InterruptedException {
 		// LoginLocators l = new LoginLocators();
-		String compare = "Terms";
+		String compare = "Privacy Policy";
 		// clickByXpath(l.LoginLinkbyxpath);
 		clickByXpath(LoginLocators.LoginLinkbyxpath);
 		Thread.sleep(5000);
 		WebElement frame = driver.findElementByXPath("//iframe[@src='/v1/api/login?isIframe=true&theme=mp-web']");
 		driver.switchTo().frame(frame);
-		clickByLink(LoginLocators.TermsbyLinkText);
+		clickByLink(LoginLocators.privacybyLinkText);
 		Thread.sleep(3000);
 		String winHandleBefore = driver.getWindowHandle();
 		Set<String> allwindows = driver.getWindowHandles();
 		for (String winHandle : allwindows) {
 			driver.switchTo().window(winHandle);
 		}
-		String terms = driver.getTitle();
+		String PrivacyPolicy = driver.getTitle();
 		Thread.sleep(2000);
-		if (compare.equalsIgnoreCase(terms)) {
-			System.out.println("Terms and conditions page is verified");
+		if (compare.equalsIgnoreCase(PrivacyPolicy)) {
+			System.out.println("Privacy policy page is verified");
 		} else {
-			System.out.println("This page is not Terms and conditions");
+			System.out.println("This page is not related to Privacy policy");
 		}
 
 		driver.switchTo().window(winHandleBefore);
