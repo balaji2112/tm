@@ -20,13 +20,43 @@ public class HomePage extends LeaftapsWrappers {
 	
 	public HomePage ClickLogInSignup()
 	{
-		clickByClassName(LoginLocators.LoginLinkbyxpath);
+		clickByXpath(LoginLocators.LoginLinkbyxpath);
 		return this;
 	}
 	
 	public HomePage ClickSignup()
 	{
+		clickByXpath(SignupLocators.SignupTabyXPath);
 		return this;
-		
 	}
+	
+	public HomePage VerifyMobileNumber()
+	{
+		verifyTextByName(SignupLocators.mobilenumberbyName);
+		return this;
+	}
+	
+	public HomePage VerifyMobileNumberMessage()
+	{
+		verifyTextByName(SignupLocators.mobilenumberbyName,SignupLocators.MobileErrorMSgbyClass);
+		return this;
+	}
+	public HomePage EnterMobileNumber(String data)
+	{
+		enterByName(SignupLocators.mobilenumberbyName,data);
+		return this;
+	}
+	
+	public HomePage EnterEmailId(String data)
+	{
+		enterByName(SignupLocators.EmailidbyName,data);
+		return this;
+	}
+	public HomePage EmailErrorMSg()
+	{
+		verifyTextByName(SignupLocators.EmailidbyName,SignupLocators.MobileErrorMSgbyClass);
+		return this;
+	}
+	
+	
 }

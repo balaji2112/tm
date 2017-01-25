@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.xml.utils.StringComparable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
@@ -445,6 +446,69 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		return bReturn; 
 	}
 
+	public String verifyTextByName(String idVal) {
+		String bReturn = "";
+		try{
+			String aReturn =driver.findElementByName(idVal).getText();
+			if(aReturn.equalsIgnoreCase(bReturn))
+			{
+				reportStep("The field" +idVal+ "is empty","Pass");
+			}
+						
+		} catch (Exception e) {
+			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
+		}
+		return bReturn; 
+	}
+	public String verifyTextByName(String idVal,String ErrorClass) {
+		String aReturn =driver.findElementByName(idVal).getText();
+		String errormsg=driver.findElementByXPath(ErrorClass).getText();
+		String msg="@";
+	
+		
+		try
+		{
+			if(errormsg.equalsIgnoreCase("Mobile Number must be valid"))
+			{
+				reportStep("The element with id: "+idVal+" is invalid.", "PASS");
+			}
+			
+		}
+			
+		catch (Exception e) {
+			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
+		}
+		
+		try
+		{
+			if(errormsg.equalsIgnoreCase("Mobile number is Compulsary"))
+			{
+				reportStep("The element with id: "+idVal+" is invalid.", "PASS");
+			}
+		}
+		catch (Exception e) 
+		{
+			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
+		}
+		try
+		{
+			if(errormsg.equalsIgnoreCase("Please enter a valid email address"))
+			{
+				reportStep("The element with id: "+idVal+" is invalid.", "PASS");
+			}
+		}
+		catch (Exception e) 
+		{
+			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
+		}
+		
+		return ErrorClass;
+		
+	}
+	private void elseif(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	/**
 	 * This method will select the drop down value using id as locator

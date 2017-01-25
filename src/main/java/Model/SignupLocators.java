@@ -14,6 +14,7 @@ public class SignupLocators
 	//Mobile number 
 	public static String mobilenumberbyName = "mobileNumber";
 	//Email field
+	public static String MobileErrorMSgbyClass="error";
 	public static String EmailidbyName = "email";
 	//Password field
 	public static String PasswordbyName = "loginPassword";

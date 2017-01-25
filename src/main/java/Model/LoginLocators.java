@@ -3,6 +3,7 @@ package Model;
 
 public class LoginLocators 
 {
+	
 	public static String LoginLinkbyxpath = "//div[contains(text(),'Log In/Sign Up')]";
 	//User name field
 	public static String UserNamebyname= "username";
