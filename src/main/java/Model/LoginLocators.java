@@ -1,8 +1,9 @@
 package Model;
 
+
 public class LoginLocators 
 {
-	public static String LoginLinkbyclass = "_3ac-";
+	public static String LoginLinkbyxpath = "//div[contains(text(),'Log In/Sign Up')]";
 	//User name field
 	public static String UserNamebyname= "username";
 	//Password
@@ -13,5 +14,7 @@ public class LoginLocators
 	public static String TermsbyLinkText="T&C";
 	//Privacy Policy
 	public static String privacybyLinkText="Privacy Policy.";
+	//public static String privacybyLinkText="Privacy Policy.";
+	//public static String privacybyLinkText="Privacy Policy.";
 
 }
