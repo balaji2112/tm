@@ -15,5 +15,6 @@ public class LoginLocators
 	//Privacy Policy
 	public static String privacybyLinkText="Privacy Policy.";
 	//public static String privacybyLinkText="Privacy Policy.";
+	//public static String privacybyLinkText="Privacy Policy.";
 
 }
