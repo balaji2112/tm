@@ -24,6 +24,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.relevantcodes.extentreports.ExtentTest;
 
@@ -475,55 +476,74 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		}
 		return bReturn; 
 	}
-	public String verifyTextByName(String idVal,String ErrorClass) {
-		String aReturn =driver.findElementByName(idVal).getText();
-		String errormsg=driver.findElementByXPath(ErrorClass).getText();
-		String msg="@";
-	
+	public String verifyEmptyMobileNumber(String ErrorXpath)
+	{
+		String errormsg=getTextByXpath(ErrorXpath);
+		try{
+		Assert.assertEquals(errormsg,"Mobile number is Compulsary.");
+			}catch(Exception e)
+		{
+			reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
+		}
+		return errormsg;
+		}
+	public String verifyInvalidMobileNumber(String ErrorXpath)
+	{
+		String errormsg=getTextByXpath(ErrorXpath);
+		try{
+		Assert.assertEquals(errormsg,"Mobile Number must be valid");
 		
+	}catch(Exception e)
+	{
+		reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
+	}
+		return errormsg;
+	}
+	public String verifyInvalidEmailID(String ErrorXpath)
+	{
+		String errormsg=getTextByXpath(ErrorXpath);
+	
+		try{
+			Assert.assertEquals(errormsg,"Please enter a valid email address");
+	}catch(Exception e)
+	{
+		reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
+	}
+		return errormsg;
+	}
+	
+	
+	
+	
+	/*public String verifyErrorByXpath(String ErrorXpath) {
+		String errormsg=getTextByXpath(ErrorXpath);	
 		try
 		{
 			if(errormsg.equalsIgnoreCase("Mobile Number must be valid"))
 			{
-				reportStep("The element with id: "+idVal+" is invalid.", "PASS");
+				reportStep("The element with id: "+errormsg+" is invalid.", "PASS");
 			}
 			
-		}
-			
-		catch (Exception e) {
-			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
-		}
 		
-		try
-		{
 			if(errormsg.equalsIgnoreCase("Mobile number is Compulsary"))
 			{
-				reportStep("The element with id: "+idVal+" is invalid.", "PASS");
+				reportStep("The element with id: "+errormsg+" is invalid.", "PASS");
 			}
-		}
-		catch (Exception e) 
-		{
-			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
-		}
-		try
-		{
+		
+		
 			if(errormsg.equalsIgnoreCase("Please enter a valid email address"))
 			{
-				reportStep("The element with id: "+idVal+" is invalid.", "PASS");
+				reportStep("The element with id: "+errormsg+" is invalid.", "PASS");
 			}
 		}
-		catch (Exception e) 
-		{
-			reportStep("The element with id: "+idVal+" could not be found.", "FAIL");
-		}
+			catch (Exception e) {
+				reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
+			}
 		
-		return ErrorClass;
-		
-	}
-	private void elseif(boolean b) {
-		// TODO Auto-generated method stub
+		return ErrorXpath;
 		
 	}
+	*/
 
 	/**
 	 * This method will select the drop down value using id as locator
@@ -593,7 +613,11 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		}
 
 	}
-	
+	 public String frames(String signup)
+	 {
+		 driver.switchTo().frame(driver.findElementByXPath(signup));
+		return signup;
+	 }
 
 	public String getAlertText() {		
 		String text = null;

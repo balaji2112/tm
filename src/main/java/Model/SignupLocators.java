@@ -8,13 +8,15 @@ public class SignupLocators
 	public static String SignupTabyXPath = "//li[contains(text(),'Sign Up')]";
 	//Mobile number for
 	
+	
+	public static String FrameXpath="//iframe[@src='/v1/api/login?isIframe=true&theme=mp-web']";
 	public static String SignupLinkbyclass = "_3ac-";
 	//Sign Up tab
 	//public static String SignupTabyLinkText = "Sign Up";
 	//Mobile number 
 	public static String mobilenumberbyName = "mobileNumber";
 	//Email field
-	public static String MobileErrorMSgbyClass="error";
+	public static String MobileErrorMSgbyXpath="//span[@class='error']";
 	//email id by name
 	public static String EmailidbyName = "email";
 	//checkbox class name

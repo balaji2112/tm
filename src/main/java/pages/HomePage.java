@@ -25,7 +25,11 @@ public class HomePage extends LeaftapsWrappers {
 		clickByXpath(LoginLocators.LoginLinkbyxpath);
 		return this;
 	}
-	
+	public HomePage switchingframe()
+	{
+		frames(SignupLocators.FrameXpath);
+		return this;
+	}
 	public HomePage ClickSignup()
 	{
 		clickByXpath(SignupLocators.SignupTabyXPath);
@@ -38,11 +42,24 @@ public class HomePage extends LeaftapsWrappers {
 		return this;
 	}
 	
-	public HomePage VerifyMobileNumberMessage()
+	public HomePage EmptyMobileNumberMessage()
 	{
-		verifyTextByName(SignupLocators.mobilenumberbyName,SignupLocators.MobileErrorMSgbyClass);
+		verifyEmptyMobileNumber(SignupLocators.MobileErrorMSgbyXpath);
 		return this;
 	}
+	
+	public HomePage InvalidMobileNumberMessage()
+	{
+		verifyInvalidMobileNumber(SignupLocators.MobileErrorMSgbyXpath);
+		return this;
+	}
+	
+	public HomePage InvalidEmailIDMessage()
+	{
+		verifyInvalidEmailID(SignupLocators.MobileErrorMSgbyXpath);
+		return this;
+	}
+		
 	public HomePage EnterMobileNumber(String data)
 	{
 		enterByName(SignupLocators.mobilenumberbyName,data);
@@ -54,9 +71,10 @@ public class HomePage extends LeaftapsWrappers {
 		enterByName(SignupLocators.EmailidbyName,data);
 		return this;
 	}
-	public HomePage EmailErrorMSg()
+	
+	public HomePage EnterPassword(String data)
 	{
-		verifyTextByName(SignupLocators.EmailidbyName,SignupLocators.MobileErrorMSgbyClass);
+		enterByName(SignupLocators.PasswordbyName, data);
 		return this;
 	}
 	
