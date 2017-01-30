@@ -17,7 +17,6 @@ public class HomePage extends LeaftapsWrappers {
 		if(!verifyTitle("Online recharge | mobile recharge for prepaid & pay postpaid bill@Paytm.com")){
 			reportStep("This is not HomePage", "FAIL");
 		}
-
 }
 	
 	public HomePage ClickLogInSignup()
@@ -78,6 +77,22 @@ public class HomePage extends LeaftapsWrappers {
 		return this;
 	}
 	
+	public HomePage Mousehover()
+	{
+		mouseOverByXpath(LoginLocators.LoginLinkbyxpath);
+		return this;
+	}
+	public HomePage Mousescroll()
+	{
+		mouseoverscroll();
+		return this;
+		
+	}
+	public HomePage profileclick()
+	{
+		clickByClassName(ViewProfile.profileclickbyclass);
+		return this;
+	}
 	public HomePage checkBox()
 	{
 		verifyCheckboxByClass(SignupLocators.CheckByClass);
@@ -89,8 +104,9 @@ public HomePage clickAddress()
 		clickByXpath(ViewProfile.AddressbyXpath);
 		return this;
              }
-public HomePage Addnewaddress()
+public HomePage Addnewaddress() throws InterruptedException
 	{
+	Thread.sleep(2000);
 		clickByClassName(ViewProfile.plusiconbyClassname);
 		return this;
 	}
@@ -104,8 +120,9 @@ public HomePage Fullname(String data)
 		enterByName(ViewProfile.Fullnamebyname,data);
 		return this;
 	}
-public HomePage Addressline1(String data)
+public HomePage Addressline1(String data) throws InterruptedException
 	{
+	Thread.sleep(2000);
 		enterByXpath(ViewProfile.Addressline1byXpath, data);
 		return this;
 	}
@@ -130,9 +147,10 @@ public HomePage Mobilenumber(String data)
 		enterByXpath(ViewProfile.MobilenumberbyXpath, data);
 		return this;
 	}
-public HomePage saveaddress()
+public HomePage saveaddress() throws InterruptedException
 	{
-		clickByXpath(ViewProfile.SavebyXpath);
+	Thread.sleep(2000);	
+	clickByXpath(ViewProfile.SavebyXpath);
 		return this;
 		
 	}

@@ -41,4 +41,6 @@ public class ViewProfile {
 	//Logout
 	public static String Logoutbylinktext ="Log Out";
 	
+	public static String profileclickbyclass ="_3ac-";
+	
 }
