@@ -169,6 +169,19 @@ public class GenericWrappers extends Reporter implements Wrappers {
 
 	}
 
+	public void enterByNameandClear(String nameValue, String data) {
+		try {
+			driver.findElement(By.name(nameValue)).clear();
+			driver.findElement(By.name(nameValue)).sendKeys(data);	
+			reportStep("The data: "+data+" entered successfully in field :"+nameValue, "PASS");
+			driver.findElement(By.name(nameValue)).clear();
+		} catch (NoSuchElementException e) {
+			reportStep("The data: "+data+" could not be entered in the field :"+nameValue, "FAIL");
+		} catch (Exception e) {
+			reportStep("Unknown exception occured while entering "+data+" in the field :"+nameValue, "FAIL");
+		}
+
+	}
 	/**
 	 * This method will enter the value to the text field using name attribute to locate
 	 * 
@@ -495,7 +508,8 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	{
 		String errormsg=getTextByXpath(ErrorXpath);
 		try{
-		Assert.assertEquals(errormsg,"Mobile number is Compulsary.");
+			Assert.assertEquals(errormsg, "Mobile Number is Compulsory");
+			reportStep("The element with id: "+errormsg+" is found.", "PASS");
 			}catch(Exception e)
 		{
 			reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
@@ -506,7 +520,8 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	{
 		String errormsg=getTextByXpath(ErrorXpath);
 		try{
-		Assert.assertEquals(errormsg,"Mobile Number must be valid");
+		Assert.assertEquals(errormsg, "Mobile Number must be valid.");
+		reportStep("The element with id: "+errormsg+" is found.", "PASS");
 		
 	}catch(Exception e)
 	{
@@ -519,7 +534,8 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		String errormsg=getTextByXpath(ErrorXpath);
 	
 		try{
-			Assert.assertEquals(errormsg,"Please enter a valid email address");
+			Assert.assertEquals(errormsg, "Please enter a valid email address.");
+			reportStep("The element with id: "+errormsg+" is found.", "PASS");
 	}catch(Exception e)
 	{
 		reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");

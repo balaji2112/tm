@@ -47,6 +47,11 @@ public class LeaftapsWrappers extends GenericWrappers {
 	
 	@AfterMethod
 	public void afterMethod(){
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+		   e.printStackTrace();
+		}
 		endTestcase();
 		quitBrowser();
 		

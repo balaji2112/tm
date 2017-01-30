@@ -16,7 +16,11 @@ public class SignupLocators
 	//Mobile number 
 	public static String mobilenumberbyName = "mobileNumber";
 	//Email field
-	public static String MobileErrorMSgbyXpath="//span[@class='error']";
+	public static String InvalidMobileMSgbyXpath="//span[contains(text(),'Mobile Number must be valid.')]";
+	//empty mobile error msg path
+	public static String EmptyMobileErrorXpath="//span[contains(text(),'Mobile Number is Compulsory')]";
+	//empty invalid mail msg path
+		public static String InvalidEmailMSgbyXpath="//span[contains(text(),'Please enter a valid email address.')]";
 	//email id by name
 	public static String EmailidbyName = "email";
 	//checkbox class name

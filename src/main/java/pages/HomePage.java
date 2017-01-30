@@ -34,7 +34,11 @@ public class HomePage extends LeaftapsWrappers {
 		clickByXpath(SignupLocators.SignupTabyXPath);
 		return this;
 	}
-	
+	public HomePage clearText(String data)
+	{
+		enterByNameandClear(SignupLocators.mobilenumberbyName,data);
+		return this;
+	}
 	public HomePage VerifyMobileNumber()
 	{
 		verifyTextByName(SignupLocators.mobilenumberbyName);
@@ -43,19 +47,19 @@ public class HomePage extends LeaftapsWrappers {
 	
 	public HomePage EmptyMobileNumberMessage()
 	{
-		verifyEmptyMobileNumber(SignupLocators.MobileErrorMSgbyXpath);
+		verifyEmptyMobileNumber(SignupLocators.EmptyMobileErrorXpath);
 		return this;
 	}
 	
 	public HomePage InvalidMobileNumberMessage()
 	{
-		verifyInvalidMobileNumber(SignupLocators.MobileErrorMSgbyXpath);
+		verifyInvalidMobileNumber(SignupLocators.InvalidMobileMSgbyXpath);
 		return this;
 	}
 	
 	public HomePage InvalidEmailIDMessage()
 	{
-		verifyInvalidEmailID(SignupLocators.MobileErrorMSgbyXpath);
+		verifyInvalidEmailID(SignupLocators.InvalidEmailMSgbyXpath);
 		return this;
 	}
 		
