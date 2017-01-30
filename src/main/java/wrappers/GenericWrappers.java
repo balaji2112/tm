@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.xml.utils.StringComparable;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -419,6 +420,20 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	}
 
 	/**
+	 * scrolling using the mouse
+	 * This method will scroll the page down
+	 */
+	public void mouseoverscroll(){
+		try{
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,1200)","");
+			}
+		catch (Exception e) {
+			reportStep("The scroll using mouse over is performed.", "FAIL");
+	}
+	}
+	
+	/**
 	 * This method will return the text of the element using xpath as locator
 	 * @param xpathVal  The xpath (locator) of the element
 	 * @author Gsr
@@ -450,14 +465,14 @@ public class GenericWrappers extends Reporter implements Wrappers {
 
 	public String verifyCheckboxByClass(String check)
 	{
+		WebElement checkbox=driver.findElementByClassName(check);
 		try
 		{
-			WebElement checkbox=driver.findElementByClassName(check);
-		checkbox.isSelected();
-		   reportStep("The field" +check+ "is empty","Pass");
+		   checkbox.isSelected();
+		   reportStep("The field" +checkbox+ "is checked","Pass");
 		}
 		catch(Exception e) {
-			reportStep("The element with id: "+check+" could not be found.", "FAIL");
+			reportStep("The element with id: "+checkbox+" could not be found.", "FAIL");
 		}
 		return check;
 	}
@@ -513,38 +528,6 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	}
 	
 	
-	
-	
-	/*public String verifyErrorByXpath(String ErrorXpath) {
-		String errormsg=getTextByXpath(ErrorXpath);	
-		try
-		{
-			if(errormsg.equalsIgnoreCase("Mobile Number must be valid"))
-			{
-				reportStep("The element with id: "+errormsg+" is invalid.", "PASS");
-			}
-			
-		
-			if(errormsg.equalsIgnoreCase("Mobile number is Compulsary"))
-			{
-				reportStep("The element with id: "+errormsg+" is invalid.", "PASS");
-			}
-		
-		
-			if(errormsg.equalsIgnoreCase("Please enter a valid email address"))
-			{
-				reportStep("The element with id: "+errormsg+" is invalid.", "PASS");
-			}
-		}
-			catch (Exception e) {
-				reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
-			}
-		
-		return ErrorXpath;
-		
-	}
-	*/
-
 	/**
 	 * This method will select the drop down value using id as locator
 	 * @param id The id (locator) of the drop down element
