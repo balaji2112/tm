@@ -440,12 +440,12 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		try{
 			JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,1200)","");
+		js.executeScript("window.scrollBy(0,800)","");
 			}
 		catch (Exception e) {
 			reportStep("The scroll using mouse over is performed.", "FAIL");
 	}
 	}
-	
 	/**
 	 * This method will return the text of the element using xpath as locator
 	 * @param xpathVal  The xpath (locator) of the element
@@ -516,6 +516,43 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		}
 		return errormsg;
 		}
+	
+	
+	public String verifyErrorMessagePasswordLogin(String ErrorXpath)
+	{
+		String errormsg=getTextByXpath(ErrorXpath);
+		try{
+			Assert.assertEquals(errormsg, "Password is required.");
+			reportStep("The element with id: "+errormsg+" is found.", "PASS");
+			}catch(Exception e)
+		{
+			reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
+		}
+		return errormsg;
+		}
+	
+	public String verifyinvalidusernameErrorMessageLogin(String ErrorXpath)
+	{
+		String errormsg=getTextByXpath(ErrorXpath);
+		try{
+			if(errormsg.contains("Mobile Number"))
+					{
+				reportStep("The element with id: "+errormsg+" is found.", "PASS");
+					}
+			else if(errormsg.contains("Email"))
+			{
+				reportStep("The element with id: "+errormsg+" is found.", "PASS");
+			}
+			
+			}catch(Exception e)
+		{
+			reportStep("The element with id: "+errormsg+" could not be found.", "FAIL");
+		}
+		return errormsg;
+		}
+	
+	
+	
 	public String verifyInvalidMobileNumber(String ErrorXpath)
 	{
 		String errormsg=getTextByXpath(ErrorXpath);
@@ -612,12 +649,44 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		}
 
 	}
+	 
+	 
 	 public String frames(String signup)
 	 {
-		 driver.switchTo().frame(driver.findElementByXPath(signup));
-		return signup;
+		 try {
+			driver.switchTo().frame(driver.findElementByXPath(signup));
+			reportStep("Switch into frame successfully.", "pass");
+		} catch (Exception e) {
+			reportStep("Unable to move new frame", "FAIL");
+		}
+		 return signup;
 	 }
+	 //frame by index
+	 public String frames(int num)
+	 {
+		 try {
+			driver.switchTo().frame(num);
+			reportStep("Switch into frame successfully.", "pass");
+		} catch (Exception e) {
+			reportStep("Unable to move new frame", "FAIL");
+		}
+		 return null;
+	 }
+	 
+	 //Swithcing out of frames
+	 public void switchoutofframe()
+	 {
+		try	{
+			driver.switchTo().defaultContent();
+			reportStep("frame default content is performed.", "PASS");
 
+		}
+	catch (Exception e) {
+		reportStep("frame default content is not performed.", "FAIL");
+
+	}
+	}
+	 
 	public String getAlertText() {		
 		String text = null;
 		try {

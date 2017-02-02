@@ -5,20 +5,20 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import wrappers.LeaftapsWrappers;
 
-public class InvalidMobileNumber extends LeaftapsWrappers {
+public class InvalidMobileNumberSignup extends LeaftapsWrappers {
 	
 	@BeforeClass
 	public void setValues(){
 		browserName = "chrome";
-		testCaseName = "Signup";
-		testDescription = "Signup to PayTm";
+		testCaseName = "Invalid Mobile Number Signup";
+		testDescription = "Verifying invalid mobile number message in Signup";
 		category = "smoke";
 		authors = "Prasanaa";
 		dataSheetName = "TC002";
 		
 	}
 	@Test
-	public void invalidmobilenumber()
+	public void invalidmobilenumberSignup()
 	{
 		new HomePage(driver,test)
 		.ClickLogInSignup()

@@ -51,6 +51,18 @@ public class HomePage extends LeaftapsWrappers {
 		return this;
 	}
 	
+	public HomePage emptypasswordMessageLogin()
+	{
+		verifyErrorMessagePasswordLogin(LoginLocators.verifyErrorpasswordXpathLogin);
+		return this;
+	}
+	
+	public HomePage invalidMobileMessageLogin()
+	{
+		verifyinvalidusernameErrorMessageLogin(LoginLocators.invalidusernameerrorXpath);
+		return this;
+	}
+	
 	public HomePage InvalidMobileNumberMessage()
 	{
 		verifyInvalidMobileNumber(SignupLocators.InvalidMobileMSgbyXpath);
@@ -69,6 +81,31 @@ public class HomePage extends LeaftapsWrappers {
 		return this;
 	}
 	
+	public HomePage enterUsername(String data)
+	{
+		enterByName(LoginLocators.UserNameLoginbyname,data);
+		return this;
+	}
+	
+	public HomePage enterPasswordLogin(String data)
+	{
+		enterByName(LoginLocators.PasswordLoginbyname,data);
+		return this;
+		
+	}
+	
+	public HomePage clickSecureLogin()
+	{
+		clickByXpath(LoginLocators.SubmitButtonbyXPath);
+		return this;
+	}
+	
+	public HomePage clickverifyOTP() throws InterruptedException
+	{   Thread.sleep(60000);
+		clickByXpath(LoginLocators.verifyButtonbyXpath);
+		return new HomePage(driver,test);
+	}
+	
 	public HomePage EnterEmailId(String data)
 	{
 		enterByName(SignupLocators.EmailidbyName,data);
@@ -85,12 +122,6 @@ public class HomePage extends LeaftapsWrappers {
 	{
 		mouseOverByXpath(LoginLocators.LoginLinkbyxpath);
 		return this;
-	}
-	public HomePage Mousescroll()
-	{
-		mouseoverscroll();
-		return this;
-		
 	}
 	public HomePage profileclick()
 	{
@@ -111,7 +142,7 @@ public HomePage clickAddress()
 public HomePage Addnewaddress() throws InterruptedException
 	{
 	Thread.sleep(2000);
-		clickByClassName(ViewProfile.plusiconbyClassname);
+		clickByClassName(ViewProfile.plusiconbyxpath);
 		return this;
 	}
 public HomePage Pincode(String data)
@@ -121,7 +152,7 @@ public HomePage Pincode(String data)
 	}
 public HomePage Fullname(String data)
 	{
-		enterByName(ViewProfile.Fullnamebyname,data);
+		enterByName(ViewProfile.plusiconbyxpath,data);
 		return this;
 	}
 public HomePage Addressline1(String data) throws InterruptedException
@@ -198,4 +229,78 @@ public HomePage confirmpassword(String data)
 		enterByXpath(ViewProfile.confirmpasswordbyXpath, data);
 		return this;
 	}
+
+public HomePage switchingframe(String xpath)
+{
+	frames(xpath);
+	return this;
+}
+public HomePage switchingframebyIndex(int num)
+{
+	frames(num);
+	return this;
+}
+public HomePage switchingfrchangepswd(String xpath) throws InterruptedException
+{
+	Thread.sleep(8000);
+	frames(xpath);
+	return this;
+}
+public HomePage pswdsuccessupdatedframe()
+{
+	frames(ViewProfile.pswdupdatedframebyXpath);
+	return this;
+}
+public HomePage nobyid()
+{
+	clickById(ViewProfile.clickingnobyid);
+	return this;
+}
+public HomePage changepasswordtab()
+{
+clickByXpath(ViewProfile.ChangepswdbyXpath);
+return this;
+}
+
+public HomePage oldpassword1(String data)
+{
+	enterById(ViewProfile.oldpswdbyid,data);
+	return this;
+}
+public HomePage newpassword1(String data)
+{
+	enterById(ViewProfile.newpasswordbyid,data);
+	return this;
+}
+public HomePage confirmpassword1(String data)
+{
+	enterById(ViewProfile.confirmpasswordbyid,data);
+	return this;
+}
+public HomePage savebutton()
+{
+	clickById(ViewProfile.savebuttonbyid);
+	return this;
+}
+
+public HomePage switchoutframe()
+{
+	switchoutofframe();
+	return this;
+}
+
+
+public HomePage settingprofileclick()
+{
+	clickByXpath(ViewProfile.settingprofileclick);
+	return this;
+}
+
+public HomePage Mousescroll()
+{
+	mouseoverscroll();
+	return this;
+	
+}
+
 }

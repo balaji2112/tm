@@ -2,6 +2,8 @@ package testScripts;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import pages.HomePage;
 import wrappers.LeaftapsWrappers;
 
 public class Login extends LeaftapsWrappers{
@@ -10,16 +12,21 @@ public class Login extends LeaftapsWrappers{
 	public void setValues(){
 		browserName = "chrome";
 		testCaseName = "Login";
-		testDescription = "Login to PayTm";
+		testDescription = "Login with valid credentials";
 		category = "smoke";
-		authors = "Gopi";
-		dataSheetName = "TC001";
+		authors = "Prasanaa";
+		dataSheetName = "TC012";
 		
 	}
 	@Test
-	public void login()
+	public void logintestcase()
 	{
-		//invokeApp("chrome");
+		new HomePage(driver,test)
+		.ClickLogInSignup()
+		.switchingframe()
+		.enterUsername("9894655621")
+		.enterPasswordLogin("GSR@300")
+		.clickSecureLogin();
 	}
 
 }
